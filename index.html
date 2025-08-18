@@ -3,61 +3,228 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Design Tokens Test</title>
+  <title>Derma Light Hamburg - Dauerhafte Haarentfernung | Laser-Haarentfernung</title>
+  <meta name="description" content="Professionelle Laser-Haarentfernung in Hamburg mit moderner 808-nm Diodenlaser-Technologie. Individuelle Behandlung für sichtbar weniger Haarwuchs.">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://laser-haarentfernung.hamburg/">
+  
+  <!-- Favicon -->
+  <!-- <link rel="icon" href="assets/images/favicon-DL.png" type="image/png"> -->
+  
+  <!-- Open Graph Meta-Tags -->
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Laser Haarentfernung in Hamburg - Haare weglasern für beste Resultate">
+  <meta property="og:description" content="Wir entfernen störende Haare dauerhaft mit Laser. Für beste Ergebnisse die Laser-Haarentfernung bei Derma Light in Hamburg.">
+  <meta property="og:url" content="https://laser-haarentfernung.hamburg/">
+  <meta property="og:site_name" content="Derma Light Haarentfernung">
+  <meta property="og:image" content="https://laser-haarentfernung.hamburg/img/laser-haarentfernung-hamburg-hero-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="628">
+  <meta property="og:image:alt" content="Professionelle Laser-Haarentfernung in Hamburg - Moderne Praxis für dauerhafte Haarreduktion">
+  
+  <!-- Twitter Meta-Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Laser Haarentfernung in Hamburg - Wir entfernen störende Haare dauerhaft mit Laser.">
+  <meta name="twitter:description" content="Wir entfernen störende Haare dauerhaft mit Laser. Für beste Ergebnisse die Laser-Haarentfernung bei Derma Light in Hamburg.">
+  <meta name="twitter:image" content="https://laser-haarentfernung.hamburg/img/laser-haarentfernung-hamburg-hero-image.png">
+  
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": [
+            "MedicalSpa",
+            "HealthAndBeautyBusiness"
+          ],
+          "@id": "https://laser-haarentfernung.hamburg/#organisation",
+          "name": "Derma Light Hamburg",
+          "url": "https://laser-haarentfernung.hamburg/",
+          "email": "info@dermalight-hamburg.de",
+          "telephone": "+49 40 55435357",
+          "priceRange": "€€",
+          "description": "Derma Light Hamburg – dauerhafte Laser- und IPL-Haarentfernung in Hamburg. Individuelle Beratung und schonende Behandlungen nach Haut- und Haartyp – Termine nach Vereinbarung.",
+          "slogan": "Dauerhafte Haarentfernung – Termine nach Vereinbarung",
+          "image": "https://laser-haarentfernung.hamburg/img/laser-haarentfernung-hamburg-hero-image.png",
+          "logo": "https://laser-haarentfernung.hamburg/img/logo.svg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Gertrudenkirchhof 10",
+            "addressLocality": "Hamburg",
+            "postalCode": "20095",
+            "addressRegion": "HH",
+            "addressCountry": "DE"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 53.5511,
+            "longitude": 9.9937
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "00:00",
+              "closes": "23:59",
+              "description": "Termine nach Vereinbarung"
+            }
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "contactType": "customer service",
+              "telephone": "+49 40 55435357",
+              "email": "info@dermalight-hamburg.de",
+              "availableLanguage": ["de"]
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/ipl.haarentfernung.hamburg/",
+            "https://twitter.com/DermaLight_ipl",
+            "https://www.instagram.com/dl_dermalight/",
+            "https://www.youtube.com/channel/UCjZ-lGzPSe7zTUXop15KhNw",
+            "https://www.pinterest.de/dermalight_haarentfernung/",
+            "https://www.yelp.de/biz/derma-light-haarentfernung-hamburg-4"
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Hamburg"
+          },
+          "knowsAbout": [
+            "Laser Haarentfernung",
+            "IPL Haarentfernung",
+            "Dauerhafte Haarentfernung",
+            "Diodenlaser",
+            "Hauttypenanalyse",
+            "Schonende Haarreduktion"
+          ],
+          "currenciesAccepted": "EUR",
+          "paymentAccepted": "Cash, EC, Credit Card"
+          /* Optional: AggregateRating erst hinzufügen, wenn echte verifizierbare Bewertungen vorhanden sind.
+          ,
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "XX"
+          }
+          */
+        },
+        {
+          "@type": "Service",
+          "@id": "https://laser-haarentfernung.hamburg/#service-haarentfernung",
+          "name": "Dauerhafte Haarentfernung",
+          "alternateName": "Laser & IPL Haarentfernung Hamburg",
+          "serviceType": "Laser- und IPL-Haarentfernung",
+          "provider": {
+            "@id": "https://laser-haarentfernung.hamburg/#organisation"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Hamburg"
+          },
+          "description": "Dauerhafte Reduktion von Haarwuchs mittels Laser- und IPL-Technologien, hauttypgerecht angepasst. Termine nach Vereinbarung.",
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "EUR",
+            "priceRange": "ab 29 €",
+            "lowPrice": "AUF_ANFRAGE",
+            "highPrice": "AUF_ANFRAGE",
+            "offerCount": "0",
+            "availability": "https://schema.org/InStock",
+            "url": "https://laser-haarentfernung.hamburg/#preise"
+          }
+          /* Wenn du konkrete Preisbereiche hast (z. B. lowPrice 39, highPrice 299, offerCount Anzahl Zonen), einfach ersetzen.
+          */
+        }
+        /* FAQ Schema kannst du ergänzen, sobald identische Inhalte sichtbar auf der Seite sind. */
+      ]
+    }
+    </script>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1 class="test-heading">Design Tokens Test</h1>
-      <p>Diese Seite testet die implementierten Design Tokens und Komponenten.</p>
-    </header>
+  <!-- Skip-Link (direkt nach <body> als erstes Element) -->
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-    <main>
-      <section class="test-section">
-        <h2 class="test-heading">Button Komponenten</h2>
-        
-        <div class="button-group">
-          <button class="btn btn-primary">Primary Button</button>
-          <button class="btn btn-secondary">Secondary Button</button>
-          <button class="btn btn-accent">Accent Button</button>
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <!-- Logo / Brand -->
+      <a href="/" class="brand" aria-label="Startseite">
+        <span class="brand__mark" aria-hidden="true">◎</span>
+        <span class="brand__text">LaserCare</span>
+      </a>
+
+      <!-- Nav Toggle (Mobile) -->
+      <button class="nav-toggle" type="button"
+              aria-label="Menü öffnen"
+              aria-controls="site-nav"
+              aria-expanded="false"
+              data-nav-toggle>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <!-- Navigation -->
+      <nav id="site-nav" class="primary-nav" aria-label="Hauptnavigation" data-nav>
+        <ul class="primary-nav__list">
+          <li><a href="#vorteile">Vorteile</a></li>
+          <li><a href="#technologie">Technologie</a></li>
+          <li><a href="#preise">Preise</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <div class="primary-nav__cta">
+          <a href="#beratung" class="btn btn--primary btn--small">Beratung</a>
         </div>
+      </nav>
+    </div>
+  </header>
 
-        <div class="button-group">
-          <button class="btn btn-primary btn-large">Large Primary</button>
-          <button class="btn btn-secondary btn-small">Small Secondary</button>
+  <main id="main">
+    <section class="hero" id="top">
+      <picture class="hero__bg">
+        <img src="img/laser-haarentfernung-hamburg-hero-image.png" alt="Professionelle Laser-Haarentfernung in Hamburg - Moderne Praxis für dauerhafte Haarreduktion" width="1600" height="900" fetchpriority="high" decoding="async">
+      </picture>
+      <div class="hero__overlay"></div>
+      <div class="hero__inner">
+        <h1>Dauerhafte Haarentfernung in Hamburg – präzise & sicher</h1>
+        <p class="hero__lead">Moderne 808-nm Diodenlaser-Technologie für sichtbar weniger Haarwuchs – individuell auf deinen Haut- & Haartyp abgestimmt.</p>
+        <div class="hero__actions">
+          <a href="#beratung" class="btn btn--primary">Kostenlose Beratung</a>
+          <a href="#vorteile" class="btn btn--ghost">Vorteile ansehen</a>
         </div>
-      </section>
+        <ul class="hero__trust">
+          <li>Seit 2005 Erfahrung</li>
+          <li>Zertifizierte Geräte</li>
+          <li>Individuelle Parameter</li>
+        </ul>
+        <p class="hero__micro">Unverbindlich · Antwort meist innerhalb 24h</p>
+      </div>
+    </section>
 
-      <section class="test-section">
-        <h2 class="test-heading">Typografie Test</h2>
-        
-        <h1 class="heading-1">Heading 1 - Große Überschrift</h1>
-        <h2 class="heading-2">Heading 2 - Mittlere Überschrift</h2>
-        <h3 class="heading-3">Heading 3 - Kleine Überschrift</h3>
-        
-        <p class="body-text">
-          Dies ist ein Beispiel für Body-Text. Er verwendet die definierten Tokens für 
-          Schriftgröße, Zeilenhöhe und Farbe. Der Text sollte gut lesbar sein und 
-          die richtige Hierarchie zeigen.
-        </p>
-        
-        <p class="small-text">
-          Dies ist kleiner Text, der für zusätzliche Informationen oder 
-          Fußnoten verwendet werden kann.
-        </p>
-      </section>
-
-      <section class="test-section">
-        <h2 class="test-heading">Spacing & Layout Test</h2>
-        
-        <div class="spacing-demo">
-          <div class="spacing-box">Spacing Box 1</div>
-          <div class="spacing-box">Spacing Box 2</div>
-          <div class="spacing-box">Spacing Box 3</div>
-        </div>
-      </section>
-    </main>
-  </div>
-</body>
+    <!-- Platzhalter für nachfolgende Sektionen -->
+    <section class="placeholder">
+      <div class="container">
+        <h2>Platzhalter Abschnitt</h2>
+        <p>Hier folgt später Features / Vorteile.</p>
+      </div>
+    </section>
+      </main>
+  </body>
+  <script src="js/nav.js" defer></script>
 </html>

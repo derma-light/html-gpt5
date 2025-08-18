@@ -25,6 +25,7 @@
   --fs-h1: clamp(2.05rem, 4.6vw, 3rem);
   --fs-h2: clamp(1.55rem, 3vw, 2.1rem);
   --fs-h3: 1.25rem;
+  --fs-lead: 1.125rem;
   --fs-body: 1rem;
   --fs-small: 0.875rem;
   --lh-tight: 1.15;
@@ -60,6 +61,9 @@
   --z-overlay: 40;
   --z-dropdown: 60;
   --z-modal: 100;
+
+  /* Header */
+  --header-height: 64px;
 }
 
 /* ===== BASE STYLES ===== */
@@ -172,77 +176,7 @@ body {
   margin: var(--space-3) 0;
 }
 
-/* ===== BUTTON COMPONENTS ===== */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-3) var(--space-5);
-  font-family: var(--font-sans);
-  font-size: var(--fs-body);
-  font-weight: var(--fw-medium);
-  line-height: var(--lh-tight);
-  text-decoration: none;
-  border: none;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all var(--transition-base);
-  box-shadow: var(--shadow-sm);
-}
 
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-}
-
-.btn:focus {
-  outline: 2px solid var(--color-focus-ring);
-  outline-offset: 2px;
-}
-
-.btn:active {
-  transform: translateY(0);
-}
-
-/* Button Variants */
-.btn-primary {
-  background-color: var(--color-primary);
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: var(--color-primary-hover);
-}
-
-.btn-secondary {
-  background-color: var(--color-secondary);
-  color: white;
-}
-
-.btn-secondary:hover {
-  background-color: var(--color-secondary);
-  filter: brightness(0.9);
-}
-
-.btn-accent {
-  background-color: var(--color-accent);
-  color: white;
-}
-
-.btn-accent:hover {
-  background-color: var(--color-accent-hover);
-}
-
-/* Button Sizes */
-.btn-large {
-  padding: var(--space-4) var(--space-6);
-  font-size: var(--fs-h3);
-}
-
-.btn-small {
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--fs-small);
-}
 
 /* ===== UTILITY CLASSES ===== */
 .sr-only {
