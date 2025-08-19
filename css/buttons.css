@@ -61,17 +61,18 @@
 }
 
 .btn--ghost {
-  --btn-bg: rgba(255,255,255,0.12);
-  --btn-bg-hover: rgba(255,255,255,0.25);
+  --btn-bg: transparent;
+  --btn-bg-hover: var(--color-accent-hover);
   backdrop-filter: blur(3px);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: #fff;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
   box-shadow: none;
 }
 
 .btn--ghost:hover,
 .btn--ghost:focus-visible {
-  border-color: rgba(255,255,255,0.45);
+  border-color: var(--color-accent-hover);
+  color: #fff;
 }
 
 /* Button Sizes */

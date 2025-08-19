@@ -1,0 +1,219 @@
+/* =========================================
+base.css – Derma Light Hamburg
+Version: 0.1.0
+Zweck: Tokens + Grundtypografie + Resets
+========================================= */
+
+/* 1. Box-Sizing & Grundreset */
+*, *::before, *::after {
+box-sizing: border-box;
+}
+html, body {
+padding: 0;
+margin: 0;
+}
+body {
+font-family: var(--font-sans);
+font-size: var(--fs-body);
+line-height: var(--lh-body);
+color: var(--color-text-body);
+background: var(--color-bg);
+}
+
+/* 2. Design Tokens (Root) */
+:root {
+/* Farben */
+--color-bg: #ffffff;
+--color-bg-alt: #f5f7f8;
+--color-surface: #ffffff;
+--color-text-high: #1e2a2e;
+--color-text-body: #4a5155;
+--color-text-muted: #6a7478;
+--color-primary: #146c8a;
+--color-primary-hover: #0f536a;
+--color-secondary: #40c3c8;
+--color-accent: #e65642;
+--color-accent-hover: #c94734;
+--color-border: #e3e7ea;
+--color-focus-ring: rgba(230, 86, 66, 0.45);
+--color-success: #1f8f4d;
+--color-warning: #d88800;
+--color-error: #c53939;
+
+/* Typografie */
+--font-sans: "Inter","Montserrat",system-ui,sans-serif;
+--font-heading: "Montserrat","Inter",system-ui,sans-serif;
+--fw-regular: 400;
+--fw-medium: 500;
+--fw-semibold: 600;
+--fw-bold: 700;
+--fs-h1: clamp(2.05rem, 4.6vw, 3rem);
+--fs-h2: clamp(1.55rem, 3vw, 2.1rem);
+--fs-h3: 1.25rem;
+--fs-lead: 1.125rem;
+--fs-body: 1rem;
+--fs-small: 0.875rem;
+--fs-xs: 0.75rem;
+--lh-tight: 1.15;
+--lh-body: 1.55;
+
+/* Spacing (4px-Raster, rem-basiert) */
+--space-1: 0.25rem;
+--space-2: 0.5rem;
+--space-3: 0.75rem;
+--space-4: 1rem;
+--space-5: 1.5rem;
+--space-6: 2rem;
+--space-7: 2.5rem;
+--space-8: 3rem;
+--space-9: 4rem;
+
+/* Radius & Shadow */
+--radius-sm: 4px;
+--radius-md: 8px;
+--radius-lg: 16px;
+--shadow-sm: 0 1px 2px rgba(0,0,0,0.06), 0 1px 4px -1px rgba(0,0,0,0.04);
+--shadow-md: 0 4px 12px -2px rgba(0,0,0,0.12);
+--shadow-panel: 0 4px 18px -6px rgba(0,0,0,0.15);
+
+/* Motion */
+--transition-base: 0.25s cubic-bezier(0.4,0,0.2,1);
+
+/* Layout */
+--container-max: 1160px;
+--container-pad: clamp(1rem, 3vw, 2rem);
+--bp-nav: 960px;
+
+/* Z-Layer */
+--z-nav: 50;
+--z-overlay: 40;
+--z-dropdown: 60;
+--z-modal: 100;
+
+/* Header */
+--header-height: 64px;
+}
+
+/* 3. Typografie Elemente */
+h1,h2,h3,h4,h5,h6 {
+font-family: var(--font-heading);
+color: var(--color-text-high);
+font-weight: var(--fw-semibold);
+line-height: var(--lh-tight);
+}
+p {
+margin: 0 0 var(--space-5);
+}
+ul, ol {
+margin: 0 0 var(--space-5) var(--space-5);
+padding: 0;
+}
+li {
+margin: 0 0 var(--space-2);
+}
+a {
+color: var(--color-primary);
+text-decoration: none;
+transition: color var(--transition-base);
+}
+a:hover, a:focus-visible {
+color: var(--color-primary-hover);
+}
+strong {
+font-weight: 600;
+}
+
+/* 4. Bilder & Medien */
+img {
+max-width: 100%;
+height: auto;
+display: block;
+}
+
+/* 5. Helfer / Layout */
+.wrap, .container {
+width: 100%;
+margin: 0 auto;
+max-width: var(--layout-max);
+padding: 0 var(--space-4);
+}
+.section {
+padding: var(--space-7) var(--space-4);
+}
+
+/* 6. Fokus-Stile (sichtbar & konsistent) */
+:focus-visible {
+outline: 2px solid var(--color-accent);
+outline-offset: 2px;
+}
+
+/* 7. Utility Klassen */
+.visually-hidden {
+position: absolute !important;
+width: 1px !important;
+height: 1px !important;
+padding: 0 !important;
+margin: -1px !important;
+overflow: hidden !important;
+clip: rect(0 0 0 0) !important;
+white-space: nowrap !important;
+border: 0 !important;
+}
+
+.text-center { text-align: center; }
+
+/* 8. Buttons Basis (Grundlage für Komponenten-Refaktor) */
+.btn {
+display: inline-flex;
+gap: 0.5rem;
+align-items: center;
+justify-content: center;
+font: inherit;
+font-weight: var(--fw-medium);
+line-height: 1;
+padding: 0.75rem 1.25rem;
+border-radius: var(--radius-md);
+background: var(--btn-bg, var(--color-accent));
+color: var(--btn-color, #fff);
+border: 1px solid transparent;
+cursor: pointer;
+transition:
+background var(--transition-base),
+color var(--transition-base),
+border-color var(--transition-base),
+box-shadow var(--transition-base);
+}
+.btn:hover {
+background: var(--btn-bg-hover, var(--color-accent-hover));
+}
+.btn:focus-visible {
+outline: 2px solid var(--color-focus-ring);
+outline-offset: 2px;
+}
+.btn--ghost {
+--btn-bg: transparent;
+--btn-color: var(--color-accent);
+border-color: var(--color-accent);
+}
+.btn--ghost:hover {
+--btn-bg: var(--color-accent);
+--btn-color: #fff;
+}
+
+/* 9. Motion-Präferenz */
+@media (prefers-reduced-motion: reduce) {
+
+{ animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+/* 10. Platzhalter Dark Mode Hook (später) */
+/*
+@media (prefers-color-scheme: dark) {
+:root {
+--color-bg: #111;
+--color-text: #f5f5f5;
+--color-border: #2a2a2a;
+}
+body { background: var(--color-bg); color: var(--color-text); }
+}
+*/
+
+
