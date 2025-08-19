@@ -1,45 +1,5 @@
 /* ===== BUTTON COMPONENTS ===== */
-
-/* Base Button */
-.btn {
-  --btn-bg: var(--color-accent);
-  --btn-bg-hover: var(--color-accent-hover);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5ch;
-  font-family: var(--font-sans);
-  font-weight: var(--fw-medium);
-  font-size: var(--fs-body);
-  line-height: 1.2;
-  padding: var(--space-3) var(--space-5);
-  border-radius: var(--radius-md);
-  border: 1px solid transparent;
-  cursor: pointer;
-  background: var(--btn-bg);
-  color: #fff;
-  text-decoration: none;
-  transition: var(--transition-base);
-  box-shadow: var(--shadow-sm);
-}
-
-.btn:hover,
-.btn:focus-visible {
-  background: var(--btn-bg-hover);
-  text-decoration: none;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-}
-
-.btn:focus {
-  outline: 2px solid var(--color-focus-ring);
-  outline-offset: 2px;
-}
-
-.btn:active {
-  transform: translateY(0);
-}
-
+/* Nur Varianten – Basis kommt aus .btn in base.css */
 /* Button Variants */
 .btn--primary {
   --btn-bg: var(--color-primary);
@@ -51,10 +11,6 @@
   --btn-bg-hover: var(--color-secondary);
 }
 
-.btn--secondary:hover {
-  filter: brightness(0.9);
-}
-
 .btn--accent {
   --btn-bg: var(--color-accent);
   --btn-bg-hover: var(--color-accent-hover);
@@ -62,26 +18,13 @@
 
 .btn--ghost {
   --btn-bg: transparent;
-  --btn-bg-hover: var(--color-accent-hover);
-  backdrop-filter: blur(3px);
-  border: 1px solid var(--color-accent);
-  color: var(--color-accent);
-  box-shadow: none;
+  --btn-bg-hover: var(--color-accent);
+  --btn-color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 
 .btn--ghost:hover,
 .btn--ghost:focus-visible {
+  --btn-color: #fff;
   border-color: var(--color-accent-hover);
-  color: #fff;
-}
-
-/* Button Sizes */
-.btn--large {
-  padding: var(--space-4) var(--space-6);
-  font-size: var(--fs-h3);
-}
-
-.btn--small {
-  padding: var(--space-2) var(--space-4);
-  font-size: var(--fs-small);
 }
