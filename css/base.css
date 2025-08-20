@@ -39,6 +39,10 @@ background: var(--color-bg);
 --color-success: #1f8f4d;
 --color-warning: #d88800;
 --color-error: #c53939;
+--color-white: #ffffff;
+--color-nav-deep: #14292F;
+--color-hero-text-soft: #f2f7f8;
+--color-hero-micro: #d3dde0;
 
 /* Typografie */
 --font-sans: "Inter","Montserrat",system-ui,sans-serif;
