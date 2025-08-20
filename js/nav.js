@@ -27,7 +27,7 @@
     toggle.classList.remove('is-active');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Menü öffnen');
-    html.removeAttribute('data-nav-open');
+    html.setAttribute('data-nav-open', 'false');
     body.classList.remove('body--nav-open');
     if (returnFocus && lastFocusedBeforeOpen) {
       toggle.focus({ preventScroll: true });

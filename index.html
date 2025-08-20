@@ -161,7 +161,7 @@
     }
     </script>
   <!-- JS presence hook for progressive enhancement (hide mobile nav only when JS is available) -->
-  <script>document.documentElement.classList.add('has-js');</script>
+  <script>document.documentElement.classList.add('has-js');document.documentElement.setAttribute('data-nav-open','false');</script>
 </head>
 <body>
   <!-- Skip-Link (direkt nach <body> als erstes Element) -->
