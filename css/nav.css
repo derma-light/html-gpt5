@@ -152,6 +152,8 @@
   position: relative;
   width: 44px;
   height: 44px;
+  min-width: 48px;
+  min-height: 48px;
   display: inline-flex;
   flex-direction: column;
   justify-content: center;
@@ -256,10 +258,20 @@
   }
 }
 
+/* Unified focus ring across key interactive elements */
+.nav-toggle:focus-visible,
+.primary-nav__list a:focus-visible,
+.site-nav__list a:focus-visible,
+.skip-link:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
 /* Motion Preference */
 @media (prefers-reduced-motion: reduce) {
   .nav-toggle__bar,
-  .primary-nav {
-    transition: none;
+  .primary-nav,
+  .site-nav {
+    transition: none !important;
   }
 }
