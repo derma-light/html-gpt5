@@ -39,6 +39,7 @@
   <link rel="stylesheet" href="css/buttons.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/faq.css">
   
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -246,10 +247,37 @@
       </div>
     </section>
 
-    <section id="faq" class="section">
+    <section id="faq" class="section" data-faq>
       <div class="container">
         <h2>FAQ</h2>
-        <p>Inhalt folgt.</p>
+        <div class="faq" role="list">
+          <div class="faq__item" role="listitem">
+            <h3 class="faq__question">
+              <button class="faq__button" type="button" aria-expanded="false" aria-controls="faq-panel-1" id="faq-button-1">Ist die Laser-Haarentfernung schmerzhaft?</button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-1" role="region" aria-labelledby="faq-button-1">
+              <p>Die Behandlung wird meist als leichtes Ziepen oder Wärmeempfinden beschrieben. Moderne Geräte und Kühlung sorgen für maximale Verträglichkeit.</p>
+            </div>
+          </div>
+
+          <div class="faq__item" role="listitem">
+            <h3 class="faq__question">
+              <button class="faq__button" type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-button-2">Wie viele Sitzungen sind nötig?</button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-2" role="region" aria-labelledby="faq-button-2">
+              <p>In der Regel sind je nach Körperregion und Haarzyklus 6–10 Sitzungen im Abstand von mehreren Wochen sinnvoll.</p>
+            </div>
+          </div>
+
+          <div class="faq__item" role="listitem">
+            <h3 class="faq__question">
+              <button class="faq__button" type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-button-3">Ist die Methode für alle Hauttypen geeignet?</button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-3" role="region" aria-labelledby="faq-button-3">
+              <p>Grundsätzlich ja. Die Parameter werden individuell an Haut- und Haartyp angepasst, um wirksam und schonend zu behandeln.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -268,5 +296,6 @@
     </section>
       </main>
     <script src="js/nav.js" defer></script>
+    <script src="js/faq.js" defer></script>
   </body>
 </html>
