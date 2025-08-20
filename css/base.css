@@ -44,6 +44,33 @@ background: var(--color-bg);
 --color-hero-text-soft: #f2f7f8;
 --color-hero-micro: #d3dde0;
 
+/* Surface & Elevation */
+--color-surface-base: var(--color-bg);
+--color-surface-alt: var(--color-bg-alt);
+--color-border-subtle: rgba(0, 0, 0, 0.08);
+
+/* Shadows */
+--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.04);
+--shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.12);
+
+/* Icon Sizes */
+--size-icon-sm: 1rem;
+--size-icon-md: 1.5rem;
+
+/* Media Aspect Ratios */
+--ratio-landscape: 16/9;
+/* --ratio-square: 1/1; // optional reserve */
+
+/* Accent (visual, non-semantic) */
+--color-accent-bg: #E8F4FF; /* Light accent surface (AA contrast base) */
+--color-accent-border: #A8D8FF; /* Mid accent border */
+--color-accent-text: #004B78; /* Dark accent text/icon (≈7.4:1 contrast on bg) */
+
+/* Motion Tokens */
+--motion-duration-collapse: 200ms;
+--motion-duration-collapse-reduced: 0ms;
+--motion-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
 /* Typografie */
 --font-sans: "Inter","Montserrat",system-ui,sans-serif;
 --font-heading: "Montserrat","Inter",system-ui,sans-serif;
