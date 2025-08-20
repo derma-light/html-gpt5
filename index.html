@@ -160,6 +160,8 @@
       ]
     }
     </script>
+  <!-- JS presence hook for progressive enhancement (hide mobile nav only when JS is available) -->
+  <script>document.documentElement.classList.add('has-js');</script>
 </head>
 <body>
   <!-- Skip-Link (direkt nach <body> als erstes Element) -->
@@ -185,7 +187,7 @@
       </button>
 
       <!-- Navigation -->
-      <nav id="site-nav" class="primary-nav" aria-label="Hauptnavigation" data-nav>
+      <nav id="site-nav" class="primary-nav" aria-label="Hauptnavigation" data-nav data-state="closed">
         <ul class="primary-nav__list">
           <li><a href="#vorteile">Vorteile</a></li>
           <li><a href="#technologie">Technologie</a></li>
