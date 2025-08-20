@@ -40,6 +40,16 @@
 
   toggle.addEventListener('click', toggleNav);
 
+  // Ensure keyboard activation works consistently across browsers
+  toggle.addEventListener('keydown', (e) => {
+    const isEnter = e.key === 'Enter';
+    const isSpace = e.key === ' ' || e.key === 'Spacebar' || e.code === 'Space';
+    if (isEnter || isSpace) {
+      e.preventDefault();
+      toggleNav();
+    }
+  });
+
   // ESC schließt
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isOpen()) {
