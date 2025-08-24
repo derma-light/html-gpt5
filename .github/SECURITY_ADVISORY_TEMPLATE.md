@@ -3,7 +3,7 @@
 NICHT direkt committen als veröffentlichtes Advisory – nutze GitHub "Security Advisories".
 
 ## Übersicht
-- Paket: NPM_PACKAGE_NAME
+- Paket: card-expandable
 - Affected Versionen: z. B. <=1.0.2
 - Fixed Version: z. B. 1.0.3
 - Schweregrad (intern): (Kritisch|Hoch|Mittel|Niedrig|Informativ)
@@ -39,7 +39,7 @@ Interne Ursache / Codepfad.
 ## Timeline
 | Datum | Ereignis |
 |-------|----------|
-| DATE_INIT | Report erhalten |
+| 2025-08-24 | Report erhalten |
 | ... | ... |
 
 ## Danksagung

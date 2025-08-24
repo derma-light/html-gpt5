@@ -29,17 +29,14 @@ Out of Scope (Beispiele):
 ## Meldung einer Sicherheitslücke
 
 Bitte KEIN öffentliches Issue.
-1. E-Mail an: SECURITY_CONTACT_EMAIL
-2. Betreff: [Security][NPM_PACKAGE_NAME] Kurzbeschreibung
+1. E-Mail an: info@dermalight-hamburg.de
+2. Betreff: [Security][card-expandable] Kurzbeschreibung
 3. Enthalten:
    - Beschreibung & Impact
    - Reproduktionsschritte / PoC
    - Betroffene Version(en) (npm Version, Commit Hash)
    - Umgebung / Plattform
    - Optional: Fix-Idee
-
-Optional (PGP):
-PGP Public Key / Fingerprint: PGP_FINGERPRINT_ODER_LINK
 
 Alternative (falls E-Mail nicht möglich):
 - GitHub Security Advisory Draft (privat)
@@ -72,7 +69,7 @@ Alternative (falls E-Mail nicht möglich):
 
 ## Patch-Strategie
 
-- Backports nur für letzte Major-Version (SEMVER_MAJOR.x).
+- Backports nur für letzte Major-Version (1.x).
 - Security Fixes als Patch Release (z. B. 1.0.1).
 - Keine "stillen" Fixes – Ausnahme: sehr kurzfristige Koordination bis zur Veröffentlichung.
 
@@ -106,12 +103,12 @@ Keine Veröffentlichung personenbezogener Daten ohne Freigabe.
 
 ## Kontakt
 
-Primär: SECURITY_CONTACT_EMAIL  
+Primär: info@dermalight-hamburg.de  
 Fallback: GitHub Security Advisory Draft (privat)
 
 ## Historie
 
-- DATE_INIT: Initiale Version (für Release v1.0.0)
+- 2025-08-24: Initiale Version (für Release v1.0.0)
 
 ## Kanonische Quelle
 

@@ -16,10 +16,10 @@ Kurzbeschreibung der Änderungen.
 (Ergänzen mit echten Commits / Conventional Commits)
 
 ## Installation / Upgrade
-npm install NPM_PACKAGE_NAME@X.Y.Z
+npm install card-expandable@X.Y.Z
 
 CDN:
-<script src="https://unpkg.com/NPM_PACKAGE_NAME@X.Y.Z/dist/card-expandable.min.js" integrity="SRI_HASH_EINSETZEN" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/card-expandable@X.Y.Z/dist/card-expandable.min.js" integrity="SRI_HASH_EINSETZEN" crossorigin="anonymous"></script>
 
 ## Sicherheit
 Für Security Reports: siehe SECURITY.md (Coordinated Disclosure).
