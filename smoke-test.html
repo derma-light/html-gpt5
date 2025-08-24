@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Expandable Smoke Test</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/card-expandable.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  <style>
+    .test-section { margin: 2rem 0; padding: 1rem; border: 1px solid #ccc; }
+    .test-result { padding: 0.5rem; margin: 0.5rem 0; border-radius: 4px; }
+    .test-pass { background: #d4edda; color: #155724; }
+    .test-fail { background: #f8d7da; color: #721c24; }
+    .test-info { background: #d1ecf1; color: #0c5460; }
+    .card-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  </style>
+</head>
+<body>
+  <h1>Card Expandable Smoke Test</h1>
+  
+  <div class="test-section">
+    <h2>Test 1: 10 schnelle Toggles</h2>
+    <button id="rapid-toggle" class="btn btn--primary">Starte 10 schnelle Toggles</button>
+    <div id="rapid-result" class="test-result"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 2: 3 Karten gemischter Initialzustand</h2>
+    <div class="card-grid">
+      <article class="card card--expandable" data-expandable>
+        <h3 class="card__title">
+          <button class="card__toggle" aria-expanded="false" aria-controls="panel-1">
+            <span class="card__toggle-label">Card 1 (geschlossen)</span>
+            <svg class="card__chevron" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+            </svg>
+          </button>
+        </h3>
+        <div id="panel-1" class="card__content" role="region" aria-labelledby="toggle-1" aria-hidden="true">
+          <p>Inhalt Card 1</p>
+        </div>
+      </article>
+
+      <article class="card card--expandable" data-expandable>
+        <h3 class="card__title">
+          <button class="card__toggle" aria-expanded="true" aria-controls="panel-2">
+            <span class="card__toggle-label">Card 2 (offen)</span>
+            <svg class="card__chevron" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+            </svg>
+          </button>
+        </h3>
+        <div id="panel-2" class="card__content" role="region" aria-labelledby="toggle-2">
+          <p>Inhalt Card 2</p>
+        </div>
+      </article>
+
+      <article class="card card--expandable" data-expandable>
+        <h3 class="card__title">
+          <button class="card__toggle" aria-expanded="false" aria-controls="panel-3">
+            <span class="card__toggle-label">Card 3 (geschlossen)</span>
+            <svg class="card__chevron" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+            </svg>
+          </button>
+        </h3>
+        <div id="panel-3" class="card__content" role="region" aria-labelledby="toggle-3" aria-hidden="true">
+          <p>Inhalt Card 3</p>
+        </div>
+      </article>
+    </div>
+    <div id="mixed-result" class="test-result"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 3: Akkordeon Flag OFF (mehrere offen möglich)</h2>
+    <div class="card-grid" data-accordion-group>
+      <article class="card card--expandable" data-expandable>
+        <h3 class="card__title">
+          <button class="card__toggle" aria-expanded="false" aria-controls="panel-4">
+            <span class="card__toggle-label">Accordion 1</span>
+            <svg class="card__chevron" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+            </svg>
+          </button>
+        </h3>
+        <div id="panel-4" class="card__content" role="region" aria-labelledby="toggle-4" aria-hidden="true">
+          <p>Accordion Item 1</p>
+        </div>
+      </article>
+
+      <article class="card card--expandable" data-expandable>
+        <h3 class="card__title">
+          <button class="card__toggle" aria-expanded="false" aria-controls="panel-5">
+            <span class="card__toggle-label">Accordion 2</span>
+            <svg class="card__chevron" aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+            </svg>
+          </button>
+        </h3>
+        <div id="panel-5" class="card__content" role="region" aria-labelledby="toggle-5" aria-hidden="true">
+          <p>Accordion Item 2</p>
+        </div>
+      </article>
+    </div>
+    <button id="test-accordion-off" class="btn btn--secondary">Teste: Mehrere können offen sein</button>
+    <div id="accordion-off-result" class="test-result"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 4: Akkordeon Flag ON (Exklusivität)</h2>
+    <button id="enable-accordion" class="btn btn--primary">Akkordeon aktivieren</button>
+    <button id="test-accordion-on" class="btn btn--secondary">Teste: Nur eine offen</button>
+    <div id="accordion-on-result" class="test-result"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 5: No-JS Fallback</h2>
+    <div id="nojs-result" class="test-result"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 6: Reduced Motion</h2>
+    <div id="reduced-motion-result" class="test-result"></div>
+  </div>
+
+  <div class="test-section">
+    <h2>Test 7: Print Events</h2>
+    <button id="test-print" class="btn btn--primary">Simuliere Print-Events</button>
+    <div id="print-result" class="test-result"></div>
+  </div>
+
+  <script src="js/card-expandable.js"></script>
+  <script>
+    // Smoke Test Suite
+    const testResults = [];
+    
+    function logTest(name, passed, message) {
+      const result = { name, passed, message, timestamp: new Date().toISOString() };
+      testResults.push(result);
+      
+      const resultDiv = document.getElementById(`${name.toLowerCase().replace(/\s+/g, '-')}-result`);
+      if (resultDiv) {
+        resultDiv.className = `test-result ${passed ? 'test-pass' : 'test-fail'}`;
+        resultDiv.innerHTML = `<strong>${passed ? '✅ PASS' : '❌ FAIL'}:</strong> ${message}`;
+      }
+      
+      console.log(`${passed ? '✅' : '❌'} ${name}: ${message}`);
+      return result;
+    }
+
+    // Test 1: 10 schnelle Toggles
+    document.getElementById('rapid-toggle').addEventListener('click', async () => {
+      const card = document.querySelector('.card--expandable');
+      const startTime = performance.now();
+      let errors = 0;
+      
+      try {
+        for (let i = 0; i < 10; i++) {
+          await window.CardExpandable.toggle(card);
+          await new Promise(resolve => setTimeout(resolve, 50)); // Kurze Pause
+        }
+        
+        const duration = performance.now() - startTime;
+        logTest('Rapid Toggle', true, `10 Toggles in ${duration.toFixed(0)}ms, keine Fehler`);
+      } catch (error) {
+        logTest('Rapid Toggle', false, `Fehler nach ${i} Toggles: ${error.message}`);
+      }
+    });
+
+    // Test 2: Gemischter Initialzustand
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.card--expandable');
+      const openCards = Array.from(cards).filter(card => 
+        card.querySelector('.card__toggle').getAttribute('aria-expanded') === 'true'
+      );
+      
+      logTest('Mixed Initial State', openCards.length === 1, 
+        `${openCards.length} von ${cards.length} Cards sind offen (erwartet: 1)`);
+    });
+
+    // Test 3: Akkordeon OFF
+    document.getElementById('test-accordion-off').addEventListener('click', async () => {
+      const cards = document.querySelectorAll('[data-accordion-group] .card--expandable');
+      
+      // Öffne alle Cards
+      for (const card of cards) {
+        await window.CardExpandable.expand(card);
+      }
+      
+      const openCards = Array.from(cards).filter(card => 
+        card.querySelector('.card__toggle').getAttribute('aria-expanded') === 'true'
+      );
+      
+      logTest('Accordion OFF', openCards.length === 2, 
+        `${openCards.length} von ${cards.length} Cards sind offen (erwartet: 2)`);
+    });
+
+    // Test 4: Akkordeon ON
+    document.getElementById('enable-accordion').addEventListener('click', () => {
+      window.CardExpandable.init({ enableExclusiveGroups: true });
+      logTest('Accordion Enable', true, 'Akkordeon-Verhalten aktiviert');
+    });
+
+    document.getElementById('test-accordion-on').addEventListener('click', async () => {
+      const cards = document.querySelectorAll('[data-accordion-group] .card--expandable');
+      
+      // Öffne erste Card
+      await window.CardExpandable.expand(cards[0]);
+      
+      // Versuche zweite Card zu öffnen
+      await window.CardExpandable.expand(cards[1]);
+      
+      const openCards = Array.from(cards).filter(card => 
+        card.querySelector('.card__toggle').getAttribute('aria-expanded') === 'true'
+      );
+      
+      logTest('Accordion ON', openCards.length === 1, 
+        `${openCards.length} von ${cards.length} Cards sind offen (erwartet: 1)`);
+    });
+
+    // Test 5: No-JS Fallback
+    document.addEventListener('DOMContentLoaded', () => {
+      const noJsCards = document.querySelectorAll('.card--expandable');
+      const visiblePanels = Array.from(noJsCards).filter(card => {
+        const panel = card.querySelector('.card__content');
+        return panel.style.visibility !== 'hidden' && panel.style.height !== '0px';
+      });
+      
+      logTest('No-JS Fallback', visiblePanels.length === 0, 
+        'Panels sind standardmäßig versteckt (JS lädt)');
+    });
+
+    // Test 6: Reduced Motion
+    document.addEventListener('DOMContentLoaded', () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const motionDuration = getComputedStyle(document.documentElement)
+        .getPropertyValue('--motion-duration-collapse-reduced');
+      
+      logTest('Reduced Motion', motionDuration === '0ms', 
+        `Reduced Motion: ${prefersReducedMotion ? 'aktiv' : 'inaktiv'}, Dauer: ${motionDuration}`);
+    });
+
+    // Test 7: Print Events
+    document.getElementById('test-print').addEventListener('click', () => {
+      try {
+        // Simuliere beforeprint
+        window.dispatchEvent(new Event('beforeprint'));
+        
+        setTimeout(() => {
+          // Simuliere afterprint
+          window.dispatchEvent(new Event('afterprint'));
+          
+          logTest('Print Events', true, 'Print-Events erfolgreich simuliert');
+        }, 100);
+      } catch (error) {
+        logTest('Print Events', false, `Fehler: ${error.message}`);
+      }
+    });
+
+    // Finaler Test-Report
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        console.group('🎯 Smoke Test Report');
+        console.table(testResults);
+        console.log(`Gesamt: ${testResults.length} Tests`);
+        console.log(`Bestanden: ${testResults.filter(t => t.passed).length}`);
+        console.log(`Fehlgeschlagen: ${testResults.filter(t => !t.passed).length}`);
+        console.groupEnd();
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

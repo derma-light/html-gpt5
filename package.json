@@ -1,0 +1,61 @@
+{
+  "name": "card-expandable",
+  "version": "1.0.0",
+  "description": "Accessible, lightweight expandable card / disclosure component.",
+  "type": "module",
+  "main": "dist/card-expandable.min.js",
+  "module": "dist/card-expandable.min.js",
+  "files": [
+    "dist/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/simple-build.js",
+    "postbuild": "node scripts/update-sri.mjs",
+    "test": "node test-ci.js",
+    "qa": "node scripts/post-publish-qa.mjs",
+    "qa:win": "powershell -ExecutionPolicy Bypass -File scripts/post-publish-qa.ps1"
+  },
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dermalighthamburg/card-expandable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dermalighthamburg/card-expandable/issues"
+  },
+  "homepage": "https://github.com/dermalighthamburg/card-expandable#readme",
+  "exports": {
+    ".": {
+      "import": "./dist/card-expandable.min.js",
+      "default": "./dist/card-expandable.min.js"
+    }
+  },
+  "types": "./dist/types/index.d.ts",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/dermalighthamburg"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "@axe-core/puppeteer": "^4.8.0"
+  },
+  "optionalDependencies": {
+    "lighthouse": "^11.0.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "accordion",
+    "expandable",
+    "accessibility",
+    "disclosure",
+    "component"
+  ],
+  "author": "Derma Light Hamburg",
+  "license": "MIT"
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,6 +40,12 @@
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/hero.css">
   <link rel="stylesheet" href="css/faq.css">
+  <link rel="stylesheet" href="css/card-expandable.css">
+  
+  <!-- Progressive Enhancement: No-JS Fallback -->
+  <script>
+    document.documentElement.classList.add('no-js');
+  </script>
   
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -297,5 +303,6 @@
       </main>
     <script src="js/nav.js" defer></script>
     <script src="js/faq.js" defer></script>
+    <script src="js/card-expandable.js" defer></script>
   </body>
 </html>

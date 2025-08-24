@@ -1,0 +1,104 @@
+/* Card Expandable Component Styles */
+/* Spezifische Styles für .card--expandable Variante */
+
+.card--expandable {
+  overflow: visible; /* Allow content to expand */
+}
+
+.card__toggle {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  transition: background-color var(--transition-base);
+}
+
+.card__toggle:hover {
+  background-color: var(--color-surface-alt);
+}
+
+.card__toggle:focus-visible {
+  outline: 2px solid var(--color-focus-ring, var(--color-accent-text));
+  outline-offset: 2px;
+}
+
+.card__toggle-text {
+  flex: 1;
+}
+
+.card__toggle-dyn {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  margin-left: var(--space-2);
+}
+
+.card__chevron {
+  width: var(--size-icon-sm);
+  height: var(--size-icon-sm);
+  transition: transform var(--motion-duration-collapse) var(--motion-ease-standard);
+  color: currentColor;
+}
+
+.card--expandable:not(.is-open) .card__chevron {
+  transform: rotate(0deg);
+}
+
+.card--expandable.is-open .card__chevron {
+  transform: rotate(180deg);
+}
+
+.card--expandable .card__content {
+  overflow: hidden;
+  height: auto;
+  transition: height var(--motion-duration-collapse) var(--motion-ease-standard);
+}
+
+.card--expandable:not(.is-open) .card__content {
+  height: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Progressive Enhancement: No-JS Fallback */
+.no-js .card--expandable .card__content {
+  height: auto;
+  overflow: visible;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.js .card--expandable .card__content {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  transition: height var(--motion-duration-collapse) var(--motion-ease-standard);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .card__chevron,
+  .card--expandable .card__content {
+    transition: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .card--expandable .card__content {
+    height: auto !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    overflow: visible !important;
+  }
+  .card--expandable .card__chevron {
+    transform: rotate(180deg) !important;
+  }
+}
+

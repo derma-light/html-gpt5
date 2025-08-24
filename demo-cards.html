@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Expandable Demo - SPEC v1.1</title>
+  
+  <!-- Progressive Enhancement: No-JS Fallback -->
+  <script>
+    document.documentElement.classList.add('no-js');
+  </script>
+  
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/card-expandable.css">
+  <link rel="stylesheet" href="css/buttons.css">
+  
+  <style>
+    .demo-section {
+      margin: var(--space-6) 0;
+      padding: var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+    }
+    
+    .demo-title {
+      margin-bottom: var(--space-4);
+      color: var(--color-text-high);
+    }
+    
+    .card-grid {
+      display: grid;
+      gap: var(--space-4);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    .test-info {
+      background: var(--color-surface-alt);
+      padding: var(--space-3);
+      border-radius: var(--radius-sm);
+      margin: var(--space-4) 0;
+      font-size: var(--fs-small);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Card Expandable Demo - SPEC v1.1</h1>
+    <p>Test der modularen Card-Expandable Komponente</p>
+  </header>
+
+  <main id="main">
+    <!-- Test Info -->
+    <div class="test-info">
+      <h3>Test-Anweisungen:</h3>
+      <ul>
+        <li><strong>Progressive Enhancement:</strong> Ohne JS sind alle Panels sichtbar</li>
+        <li><strong>Mit JS:</strong> Panels sind kollabierbar</li>
+        <li><strong>Events:</strong> Öffnen Sie die Browser-Konsole für Event-Logs</li>
+        <li><strong>Print:</strong> Testen Sie den Druck (alle Panels werden geöffnet)</li>
+        <li><strong>Reduced Motion:</strong> Testen Sie mit prefers-reduced-motion: reduce</li>
+        <li><strong>Dynamische Labels:</strong> Button-Text ändert sich beim Toggle</li>
+        <li><strong>Promise-API:</strong> expand/collapse/toggle geben Promises zurück</li>
+      </ul>
+    </div>
+    
+    <!-- Promise-API Test -->
+    <div class="test-info">
+      <h3>Promise-API Test:</h3>
+      <p>Öffnen Sie die Browser-Konsole und führen Sie folgende Befehle aus:</p>
+      <pre><code>// Einzelne Card expandieren
+window.CardExpandable.expand('#card-toggle-1').then(() => {
+  console.log('Card 1 wurde geöffnet');
+});
+
+// Mehrere Cards nacheinander
+async function testSequence() {
+  await window.CardExpandable.expand('#card-toggle-2');
+  console.log('Card 2 geöffnet');
+  await window.CardExpandable.collapse('#card-toggle-2');
+  console.log('Card 2 geschlossen');
+}
+testSequence();</code></pre>
+    </div>
+
+    <!-- Basis + Expandable -->
+    <section class="demo-section">
+      <h2 class="demo-title">Basis + Expandable</h2>
+      <div class="card-grid">
+        <article class="card card--expandable" data-expandable>
+          <h3 class="card__title">
+            <button id="card-toggle-1"
+                    class="card__toggle"
+                    aria-expanded="false"
+                    aria-controls="card-panel-1"
+                    data-label-open="Schließen"
+                    data-label-closed="Mehr anzeigen">
+              <span class="card__toggle-label">Basis-Expandable Card</span>
+              <span class="card__toggle-dyn">Mehr anzeigen</span>
+              <svg class="card__chevron" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+              </svg>
+            </button>
+          </h3>
+          <div id="card-panel-1"
+               class="card__content"
+               role="region"
+               aria-labelledby="card-toggle-1"
+               aria-hidden="true">
+            <p>Dies ist der kollapsierbare Inhalt einer Basis-Card. Der Inhalt wird ohne JavaScript angezeigt und mit JavaScript kollapsierbar gemacht.</p>
+            <a href="#" class="btn btn--primary">Primärer CTA</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Accent + Expandable -->
+    <section class="demo-section">
+      <h2 class="demo-title">Accent + Expandable</h2>
+      <div class="card-grid">
+        <article class="card card--accent card--expandable" data-expandable>
+          <h3 class="card__title">
+            <button id="card-toggle-2"
+                    class="card__toggle"
+                    aria-expanded="false"
+                    aria-controls="card-panel-2"
+                    data-label-open="Weniger anzeigen"
+                    data-label-closed="Details lesen">
+              <span class="card__toggle-label">Accent-Expandable Card</span>
+              <span class="card__toggle-dyn">Details lesen</span>
+              <svg class="card__chevron" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+              </svg>
+            </button>
+          </h3>
+          <div id="card-panel-2"
+               class="card__content"
+               role="region"
+               aria-labelledby="card-toggle-2"
+               aria-hidden="true">
+            <p>Diese Card hat einen Akzent-Stil und ist expandable. Sie demonstriert die Kombination von .card--accent mit .card--expandable.</p>
+            <a href="#" class="btn btn--primary">Termin vereinbaren</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Icon + Expandable -->
+    <section class="demo-section">
+      <h2 class="demo-title">Icon + Expandable</h2>
+      <div class="card-grid">
+        <article class="card card--icon card--expandable" data-expandable>
+          <div class="card__icon">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="card__title">
+            <button id="card-toggle-3"
+                    class="card__toggle"
+                    aria-expanded="false"
+                    aria-controls="card-panel-3">
+              <span class="card__toggle-label">Icon-Expandable Card</span>
+              <svg class="card__chevron" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+              </svg>
+            </button>
+          </h3>
+          <div id="card-panel-3"
+               class="card__content"
+               role="region"
+               aria-labelledby="card-toggle-3"
+               aria-hidden="true">
+            <p>Diese Card hat ein Icon und ist expandable. Sie demonstriert die Kombination von .card--icon mit .card--expandable.</p>
+            <a href="#" class="btn btn--primary">Mehr erfahren</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Media + Expandable -->
+    <section class="demo-section">
+      <h2 class="demo-title">Media + Expandable</h2>
+      <div class="card-grid">
+        <article class="card card--media card--expandable" data-expandable>
+          <figure class="card__media">
+            <img src="img/laser-haarentfernung-hamburg-hero-image.png" 
+                 alt="Laser-Haarentfernung Hamburg" 
+                 width="400" 
+                 height="225"
+                 loading="lazy">
+          </figure>
+          <h3 class="card__title">
+            <button id="card-toggle-4"
+                    class="card__toggle"
+                    aria-expanded="false"
+                    aria-controls="card-panel-4">
+              <span class="card__toggle-label">Media-Expandable Card</span>
+              <svg class="card__chevron" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+              </svg>
+            </button>
+          </h3>
+          <div id="card-panel-4"
+               class="card__content"
+               role="region"
+               aria-labelledby="card-toggle-4"
+               aria-hidden="true">
+            <p>Diese Card hat ein Media-Element und ist expandable. Sie demonstriert die Kombination von .card--media mit .card--expandable.</p>
+            <a href="#" class="btn btn--primary">Details ansehen</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Dynamic Labels -->
+    <section class="demo-section">
+      <h2 class="demo-title">Dynamic Labels</h2>
+      <div class="card-grid">
+        <article class="card card--accent card--expandable" data-expandable>
+          <h3 class="card__title">
+            <button id="card-toggle-5"
+                    class="card__toggle"
+                    aria-expanded="false"
+                    aria-controls="card-panel-5"
+                    data-label-open="Weniger anzeigen"
+                    data-label-closed="Mehr anzeigen">
+              <span class="card__toggle-label">Card mit dynamischen Labels</span>
+              <span class="card__toggle-dyn">Mehr anzeigen</span>
+              <svg class="card__chevron" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+              </svg>
+            </button>
+          </h3>
+          <div id="card-panel-5"
+               class="card__content"
+               role="region"
+               aria-labelledby="card-toggle-5"
+               aria-hidden="true">
+            <p>Diese Card demonstriert dynamische Labels. Der Button-Text ändert sich je nach Zustand der Card.</p>
+            <p>Das Label wird automatisch zwischen "Mehr anzeigen" und "Weniger anzeigen" gewechselt.</p>
+            <a href="#" class="btn btn--primary">Aktion</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Accordion Group -->
+    <section class="demo-section">
+      <h2 class="demo-title">Accordion Group (Navigation)</h2>
+      <div class="card-grid" data-accordion-group>
+        <article class="card card--expandable" data-expandable>
+          <h3 class="card__title">
+            <button id="card-toggle-6"
+                    class="card__toggle"
+                    aria-expanded="false"
+                    aria-controls="card-panel-6">
+              <span class="card__toggle-label">Accordion Item 1</span>
+              <svg class="card__chevron" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+              </svg>
+            </button>
+          </h3>
+          <div id="card-panel-6"
+               class="card__content"
+               role="region"
+               aria-labelledby="card-toggle-6"
+               aria-hidden="true">
+            <p>Erstes Accordion-Element. Nutzen Sie Pfeiltasten für Navigation zwischen den Elementen.</p>
+          </div>
+        </article>
+
+        <article class="card card--expandable" data-expandable>
+          <h3 class="card__title">
+            <button id="card-toggle-7"
+                    class="card__toggle"
+                    aria-expanded="false"
+                    aria-controls="card-panel-7">
+              <span class="card__toggle-label">Accordion Item 2</span>
+              <svg class="card__chevron" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+              </svg>
+            </button>
+          </h3>
+          <div id="card-panel-7"
+               class="card__content"
+               role="region"
+               aria-labelledby="card-toggle-7"
+               aria-hidden="true">
+            <p>Zweites Accordion-Element. Pfeiltasten funktionieren in der gesamten Gruppe.</p>
+          </div>
+        </article>
+
+        <article class="card card--expandable" data-expandable>
+          <h3 class="card__title">
+            <button id="card-toggle-8"
+                    class="card__toggle"
+                    aria-expanded="false"
+                    aria-controls="card-panel-8">
+              <span class="card__toggle-label">Accordion Item 3</span>
+              <svg class="card__chevron" aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+              </svg>
+            </button>
+          </h3>
+          <div id="card-panel-8"
+               class="card__content"
+               role="region"
+               aria-labelledby="card-toggle-8"
+               aria-hidden="true">
+            <p>Drittes Accordion-Element. Home/End für erstes/letztes Element.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Card Expandable Demo - Alle Varianten getestet</p>
+  </footer>
+
+  <script src="js/card-expandable.js" defer></script>
+  <script src="js/event-test.js" defer></script>
+  
+  <script>
+    // Demo-Initialisierung
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('Card Expandable Demo geladen.');
+      console.log('Verfügbare API-Methoden:', Object.keys(window.CardExpandable));
+      console.log('Event-Test Utility verfügbar über window.EventTest');
+    });
+  </script>
+</body>
+</html>
+
